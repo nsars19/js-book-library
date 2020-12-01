@@ -110,7 +110,9 @@ submitBookButton.addEventListener('click', () => {
   addBookToLibrary(bookObj)
   showElement(addBookButton)
   hideElement(bookForm)
-  printBooksToPage(library)
+  // add only the new book
+  let newBook = library[library.length - 1]
+  printBooksToPage([newBook])
   // remove added margin
   removeMargin()
 })
