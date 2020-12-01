@@ -131,3 +131,11 @@ addBookToLibrary(endymion)
 printBooksToPage(library)
 printBooksToPage(library)
 printBooksToPage(library)
+
+// Add event listeners for delete book buttons
+const deleteButtons = document.querySelectorAll('.book-delete')
+deleteButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    button.parentNode.parentNode.classList.add("d-none")
+  })
+})
