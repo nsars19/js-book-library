@@ -20,7 +20,7 @@ function printBooksToPage(library) {
   // create variable for main book container
   let bookContainer = document.querySelector(".books")
   
-  library.forEach(book => {
+  library.forEach((book, idx) => {
     // initialize book container to be added
     let bookInfoWrapper = document.createElement('div')
     bookInfoWrapper.className = "col-sm book"
