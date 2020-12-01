@@ -130,4 +130,18 @@
   .book-delete {
     letter-spacing: 2px;
   }
+
+  .book-back {
+    font-size: 18px;
+    height: 100%;
+    display: grid;
+    place-items: center;
+
+    p {
+      padding-left: 4px;
+    }
+    .btn {
+      width: 100%;
+    }
+  }
 }
