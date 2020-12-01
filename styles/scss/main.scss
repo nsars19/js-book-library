@@ -104,6 +104,12 @@
     }
   }
 
+  .book-info-buttons {
+    display: grid;
+    gap: 4px;
+    grid-auto-flow: column;
+  }
+
   p {
     margin: 0;
     padding: 0;
