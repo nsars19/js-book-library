@@ -93,6 +93,12 @@ submitBookButton.addEventListener('click', () => {
   hideElement(bookForm)
   printBooksToPage(library)
 })
+// Hide form when cancelled
+const cancelBookButton = document.querySelector('.book-cancel')
+cancelBookButton.addEventListener('click', () => {
+  hideElement(bookForm)
+  showElement(addBookButton)
+})
 
 // Pull info from form for new book creation
 function pullBookInfoFromForm() {
