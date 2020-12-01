@@ -7,6 +7,9 @@ function Book(title, author, numPages, haveRead = false) {
   this.haveRead = haveRead;
 }
 
+Book.prototype.switchReadStatus = function() {
+  return this.haveRead ? this.haveRead = false : this.haveRead = true
+}
 
 function addBookToLibrary(obj) {
   let newBook = new Book(obj.title, obj.author, obj.numPages, obj.haveRead)
