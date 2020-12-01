@@ -1,0 +1,110 @@
+*,
+::before,
+::after {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: #333366;
+  letter-spacing: 1.3px;
+}
+
+.btn {
+  border: 1px solid #aaa;
+  background: #ddd;
+  color: #333;
+}
+.btn:hover {
+  border: 1px solid #ccc;
+  background: #dde;
+}
+.btn:active {
+  background: rgba(221, 221, 238, 0.651);
+}
+
+.add-book {
+  padding-top: 30px;
+  padding-bottom: 12px;
+}
+.add-book .btn {
+  min-width: 100%;
+  height: 45px;
+  font-size: 1.2em;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+}
+
+.book-form-wrapper {
+  width: 100%;
+  background: linear-gradient(to bottom, #eee, #fff);
+}
+
+.book-form {
+  font-family: inherit;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  padding-right: 20px;
+  margin-bottom: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: #333;
+}
+.book-form > * {
+  margin: 4px 10px;
+}
+.book-form h2 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.book-form .radio-container {
+  margin-top: 20px;
+  min-width: 250px;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  gap: 10px;
+}
+.book-form .radio-container label {
+  margin: auto 0;
+}
+.book-form .book-submit {
+  font-weight: bold;
+  text-align: left;
+  margin-top: 20px;
+  padding-left: 22px;
+}
+
+.books-wrapper {
+  background: linear-gradient(to top, #ddd, #fff);
+}
+
+.books .book {
+  min-width: 216px;
+  color: #333;
+  padding: 30px 40px;
+  margin: 12px;
+  margin-top: 20px;
+  background: linear-gradient(to bottom, #dee, #eef);
+  border-radius: 3%;
+  box-shadow: 2px 1px 8px rgba(0, 0, 0, 0.2);
+  display: grid;
+  align-items: center;
+  transition-property: all;
+  transition-duration: 0.05s;
+  transition-timing-function: ease-out;
+}
+.books .book .btn:hover {
+  border: 2px solid #ccc;
+  background: #dde;
+}
+.books .book .btn {
+  padding: 5px 0;
+  border: 2px solid #ddd;
+  background: #dde8;
+}
+.books p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+.books .book-info {
+  letter-spacing: 2px;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/css/main.css">
+    <title>Library</title>
+</head>
+<body>
+  <div class="book-form-wrapper">
+    <div class="container">
+      <div class="row add-book">
+        <div class="col-sm-4">
+          <div class="btn">Add a book</div>
+        </div>
+      </div>
+      <div class="row rounded book-form d-none">
+        <h2>Add a book to the list</h2>
+        <input id="title" class="col-md-12" type="text" placeholder="Title">
+        <input id="author" class="col-md-12" type="text" placeholder="Author">
+        <input id="pages" class="col-md-12" type="text" placeholder="Number of pages">
+        <span class="col-sm radio-container">
+          <input id="haveRead" type="radio" name="haveRead" value=1>
+          <label for="haveRead">I have read this book</label>
+        </span>
+        <span class="col-sm radio-container">
+          <input id="haveRead" type="radio" name="haveRead" value=0>
+          <label for="haveRead">I have not read this book</label>
+        </span>
+
+        <div class="col-md-12 btn book-submit">
+          Submit Book
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="books-wrapper">
+    <div class="container">
+      <div class="row books">
+        <!-- Dynamically generated books go here -->
+      </div>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
