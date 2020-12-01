@@ -77,6 +77,8 @@ const bookForm = document.querySelector('.book-form')
 addBookButton.addEventListener('click', () => {
   hideElement(addBookButton)
   showElement(bookForm)
+  // remove 20px whitespace between container elements
+  addMargin();
 })
 
 // Hide form after submitting book
@@ -87,12 +89,16 @@ submitBookButton.addEventListener('click', () => {
   showElement(addBookButton)
   hideElement(bookForm)
   printBooksToPage(library)
+  // remove added margin
+  removeMargin()
 })
 // Hide form when cancelled
 const cancelBookButton = document.querySelector('.book-cancel')
 cancelBookButton.addEventListener('click', () => {
   hideElement(bookForm)
   showElement(addBookButton)
+  // remove added margin
+  removeMargin()
 })
 
 function addMargin() {
