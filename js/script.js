@@ -183,3 +183,76 @@ deleteButtons.forEach(button => {
     button.parentNode.parentNode.classList.add("d-none")
   })
 })
+
+
+const infoButtons = document.querySelectorAll('.book-info')
+const bookCards = document.querySelectorAll('.book')
+const cardBackSides = document.querySelectorAll('.book-back')
+const flipCards = document.querySelectorAll('.flip-card')
+
+bookCards.forEach((card, idx) => {
+  let infoButton = infoButtons[idx]
+  let backInfo = cardBackSides[idx]
+  let backInfoChildren = Array.from(backInfo.children)
+  let childElements = Array.from(card.children)
+  let currentBook = library[idx]
+
+  infoButton.addEventListener('click', () => {
+    rotateCard(card)
+    hideElementsOnCard(childElements)
+    changeReadInfoText(currentBook, backInfoChildren[0])
+    displayElementsOnCard(backInfo)
+  })
+})
+
+const readStatusButtons = document.querySelectorAll('.change-read-status')
+readStatusButtons.forEach((button, idx) => {
+  let frontElements = Array.from(bookCards[idx].children)
+  let backInfo = cardBackSides[idx]
+  let currentBook = library[idx]
+  let currentBookElement = document.getElementById(`book${idx}`)
+  let flipCard = flipCards[idx]
+
+  button.addEventListener('click', () => {
+    currentBook.switchReadStatus()
+    rotateCard(currentBookElement)
+    displayElementsOnCard(frontElements)
+    hideElementsOnCard(backInfo)
+  })
+
+  flipCard.addEventListener('click', () => {
+    rotateCard(currentBookElement)
+    displayElementsOnCard(frontElements)
+    hideElementsOnCard(backInfo)
+  })
+})
+
+
+function rotateCard(card) {
+  console.log("rotated")
+}
+function hideElementsOnCard(card) {
+  if (Array.isArray(card)) {
+    card.forEach(child => {
+      hideElementsOnCard(child)
+    })
+  } else {
+    card.classList.add("d-none")
+  }
+}
+function displayElementsOnCard(card) {
+  if (Array.isArray(card)) {
+    card.forEach(child => {
+      displayElementsOnCard(child)
+    })
+  } else {
+    card.classList.remove("d-none")
+  }
+}
+function changeReadInfoText(book, element) {
+  if (book.haveRead) {
+    element.innerText = "You have already read this book."
+  } else {
+    element.innerText = "You have not read this book."
+  }
+}
