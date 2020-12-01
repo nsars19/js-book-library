@@ -164,14 +164,18 @@ let divineComedy = new Book("The Divine Comedy", "Dante", 353,)
 let dune = new Book("Dune", "Frank Herbert", 501, true)
 let hyperion = new Book("Hyperion", "Dan Simmons", 462, true)
 let endymion = new Book("Endymion", "Dan Simmons", 516, true)
+let fahr = new Book("Fahrenheit 451", "Ray Bradbury", 451, true)
+let starship = new Book("Starship Troopers", "Robert Heinlein", 300, true)
+let ender = new Book("Ender's Game", "Orson Scott Card", 400)
 
-addBookToLibrary(theHobbit)
-addBookToLibrary(underpants)
-addBookToLibrary(divineComedy)
-addBookToLibrary(dune)
-addBookToLibrary(hyperion)
-addBookToLibrary(endymion)
+function addBooksToLibrary() {
+  let books = [theHobbit, underpants, divineComedy, dune, hyperion, endymion, fahr, starship, ender]
+  books.forEach(book => {
+    addBookToLibrary(book)
+  })
+}
 
+addBooksToLibrary()
 printBooksToPage(library)
 
 // Add event listeners for delete book buttons
