@@ -80,8 +80,8 @@ function showElement(elem) {
 const addBookButton = document.querySelector('.add-book')
 const bookForm = document.querySelector('.book-form')
 addBookButton.addEventListener('click', () => {
-  addBookButton.classList.add('d-none')
-  bookForm.classList.remove('d-none')
+  hideElement(addBookButton)
+  showElement(bookForm)
 })
 
 // Hide form after submitting book
@@ -89,8 +89,8 @@ const submitBookButton = document.querySelector('.book-submit')
 submitBookButton.addEventListener('click', () => {
   bookObj = pullBookInfoFromForm()
   addBookToLibrary(bookObj)
-  addBookButton.classList.remove('d-none')
-  bookForm.classList.add('d-none')
+  showElement(addBookButton)
+  hideElement(bookForm)
   printBooksToPage(library)
 })
 
