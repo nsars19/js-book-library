@@ -69,6 +69,13 @@ function printBooksToPage(library) {
   })
 }
 
+function hideElement(elem) {
+  elem.classList.add('d-none')
+}
+function showElement(elem) {
+  elem.classList.remove('d-none')
+}
+
 // Display form when add book button is pressed
 const addBookButton = document.querySelector('.add-book')
 const bookForm = document.querySelector('.book-form')
