@@ -5,14 +5,6 @@ function Book(title, author, numPages, haveRead = false) {
   this.author = author;
   this.numPages = numPages;
   this.haveRead = haveRead;
-  this.info = () => {
-    let info = `${this.title} by ${this.author}, ${this.numPages} pages, `
-    if (this.haveRead) {
-      return info + "have read."
-    } else {
-      return info + "have not read."
-    }
-  }
 }
 
 
