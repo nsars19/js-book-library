@@ -24,6 +24,7 @@ function printBooksToPage(library) {
     // initialize book container to be added
     let bookInfoWrapper = document.createElement('div')
     bookInfoWrapper.className = "col-sm book"
+    bookInfoWrapper.setAttribute("id", `book${idx}`)
 
     // initialize element for book title
     let bookTitle = document.createElement("h4")
