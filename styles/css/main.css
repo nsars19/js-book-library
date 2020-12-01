@@ -98,12 +98,18 @@
   border: 2px solid #ddd;
   background: #dde8;
 }
+.books .book-info-buttons {
+  display: grid;
+  gap: 4px;
+  grid-auto-flow: column;
+}
 .books p {
   margin: 0;
   padding: 0;
   margin-bottom: 10px;
 }
-.books .book-info {
+.books .book-info,
+.books .book-delete {
   letter-spacing: 2px;
 }
 
