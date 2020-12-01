@@ -50,10 +50,22 @@ function printBooksToPage(library) {
     bookInfo.forEach(section => {
       bookInfoWrapper.append(section);
     })
-    const viewButton = document.createElement('div')
+    // create & append button wrapper
+    const buttonWrapper = document.createElement('div')
+    buttonWrapper.className = "book-info-buttons"
+    bookInfoWrapper.append(buttonWrapper)
+    // create & append info button
+    const viewButton = document.createElement('span')
     viewButton.className = "btn book-info"
     viewButton.innerText = 'info'
-    bookInfoWrapper.append(viewButton);
+    // viewButton.style.maxWidth = "40%"
+    buttonWrapper.append(viewButton);
+    // create & append delete button
+    const deleteButton = document.createElement('span')
+    deleteButton.className = "btn book-delete"
+    deleteButton.innerText = "delete"
+    // deleteButton.style.maxWidth = "40%"
+    buttonWrapper.append(deleteButton)
   })
 }
 
