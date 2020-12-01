@@ -95,6 +95,15 @@ cancelBookButton.addEventListener('click', () => {
   showElement(addBookButton)
 })
 
+function addMargin() {
+  const booksWrapper = document.querySelector('.books-wrapper');
+  booksWrapper.style.marginTop = "-20px";
+}
+function removeMargin() {
+  const booksWrapper = document.querySelector('.books-wrapper');
+  booksWrapper.style.marginTop = "0px";
+}
+
 // Pull info from form for new book creation
 function pullBookInfoFromForm() {
   const title = document.getElementById("title").value
