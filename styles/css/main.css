@@ -86,13 +86,14 @@
 
 .books .book {
   min-width: 216px;
+  min-height: 250px;
   color: #333;
   padding: 30px 40px;
   margin: 12px;
   margin-top: 20px;
-  background: #eef;
+  background: #ffffee;
   border-radius: 3px;
-  box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.466);
+  box-shadow: 3px 4px 8px -4px rgba(0, 0, 0, 0.466);
   display: grid;
   align-items: center;
   transition-property: all;
@@ -121,6 +122,18 @@
 .books .book-info,
 .books .book-delete {
   letter-spacing: 2px;
+}
+.books .book-back {
+  font-size: 18px;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+.books .book-back p {
+  padding-left: 4px;
+}
+.books .book-back .btn {
+  width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */
