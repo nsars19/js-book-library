@@ -100,7 +100,6 @@ function pullBookInfoFromForm() {
     pages: pages,
     haveRead: haveRead,
   }
-  console.log(book)
 
   clearForm()
   return book
