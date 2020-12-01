@@ -38,11 +38,32 @@ function printBooksToPage(library) {
     let bookPageLength = document.createElement("p")
     bookPageLength.innerText = `${book.numPages} pages`
 
+    // initialize element container for backside of card
+    let bookBackSideWrapper = document.createElement("div")
+    bookBackSideWrapper.className = "book-back d-none"
+
+    // initialize element to hold text alerting user of read status
+    let backsideText = document.createElement("p")
+    bookBackSideWrapper.append(backsideText)
+
+    // initialize button to hold read/unread status changing function
+    let backsideReadButton = document.createElement("div")
+    backsideReadButton.className = "btn change-read-status"
+    backsideReadButton.innerText = "change status"
+    bookBackSideWrapper.append(backsideReadButton)
+
+    // initialize button to flip card back over
+    let backFlipButton // nice
+    backFlipButton = document.createElement("div")
+    backFlipButton.className = "btn flip-card"
+    backFlipButton.innerText = "back"
+    bookBackSideWrapper.append(backFlipButton)
+
     // append book to books container
     bookContainer.append(bookInfoWrapper)
     
     // append book info to book information container
-    let bookInfo = [bookTitle, bookAuthor, bookPageLength]
+    let bookInfo = [bookTitle, bookAuthor, bookPageLength, bookBackSideWrapper]
     bookInfo.forEach(section => {
       bookInfoWrapper.append(section);
     })
