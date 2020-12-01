@@ -198,7 +198,7 @@ bookCards.forEach((card, idx) => {
   let currentBook = library[idx]
 
   infoButton.addEventListener('click', () => {
-    rotateCard(card)
+    rotateCard(card, backInfo)
     hideElementsOnCard(childElements)
     changeReadInfoText(currentBook, backInfoChildren[0])
     displayElementsOnCard(backInfo)
@@ -215,21 +215,29 @@ readStatusButtons.forEach((button, idx) => {
 
   button.addEventListener('click', () => {
     currentBook.switchReadStatus()
-    rotateCard(currentBookElement)
+    rotateCardBack(currentBookElement)
     displayElementsOnCard(frontElements)
     hideElementsOnCard(backInfo)
   })
 
   flipCard.addEventListener('click', () => {
-    rotateCard(currentBookElement)
+    rotateCardBack(currentBookElement)
     displayElementsOnCard(frontElements)
     hideElementsOnCard(backInfo)
   })
 })
 
 
-function rotateCard(card) {
-  console.log("rotated")
+function rotateCard(card, back) {
+  card.style.transition = "transform 0.2s"
+  card.style.transform = "rotateY(180deg)"
+  back.style.transform = "rotateY(180deg)"
+  card.style.boxShadow = "-3px 4px 8px -4px rgba(0, 0, 0, 0.466)"
+}
+function rotateCardBack(back) {
+  back.style.boxShadow = "3px 4px 8px -4px rgba(0, 0, 0, 0.466)"
+  back.style.transform = "rotateY(180deg)"
+  back.style.transform = "none"
 }
 function hideElementsOnCard(card) {
   if (Array.isArray(card)) {
