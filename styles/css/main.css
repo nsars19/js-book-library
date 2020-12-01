@@ -33,7 +33,7 @@
 
 .book-form-wrapper {
   width: 100%;
-  background: linear-gradient(to bottom, #eee, #fff);
+  background: linear-gradient(to top, #dddddd80, #bbf);
 }
 
 .book-form {
@@ -49,6 +49,7 @@
   margin: 4px 10px;
 }
 .book-form h2 {
+  font-size: 1.84em;
   margin-top: 20px;
   margin-bottom: 15px;
 }
@@ -63,15 +64,24 @@
 .book-form .radio-container label {
   margin: auto 0;
 }
-.book-form .book-submit {
+.book-form .form-button-wrapper {
+  display: grid;
+  justify-content: start;
+  grid-auto-flow: column;
+  padding: 0;
+}
+.book-form .book-submit,
+.book-form .book-cancel {
   font-weight: bold;
-  text-align: left;
+  text-align: center;
   margin-top: 20px;
-  padding-left: 22px;
+  margin-right: 8px;
+  padding: 8px 12px;
+  width: 130px;
 }
 
 .books-wrapper {
-  background: linear-gradient(to top, #ddd, #fff);
+  background: linear-gradient(to top, #bbf, #dddddd80);
 }
 
 .books .book {
@@ -80,9 +90,9 @@
   padding: 30px 40px;
   margin: 12px;
   margin-top: 20px;
-  background: linear-gradient(to bottom, #dee, #eef);
-  border-radius: 3%;
-  box-shadow: 2px 1px 8px rgba(0, 0, 0, 0.2);
+  background: #eef;
+  border-radius: 3px;
+  box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.466);
   display: grid;
   align-items: center;
   transition-property: all;
