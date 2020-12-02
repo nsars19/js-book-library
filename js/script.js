@@ -75,13 +75,14 @@ function printBooksToPage(library) {
     const viewButton = document.createElement('span')
     viewButton.className = "btn book-info"
     viewButton.innerText = 'info'
-    // viewButton.style.maxWidth = "40%"
     buttonWrapper.append(viewButton);
     // create & append delete button
     const deleteButton = document.createElement('span')
     deleteButton.className = "btn book-delete"
     deleteButton.innerText = "delete"
-    // deleteButton.style.maxWidth = "40%"
+    deleteButton.addEventListener('click', () => {
+      deleteButton.parentNode.parentNode.classList.add("d-none")
+    })
     buttonWrapper.append(deleteButton)
   })
 }
@@ -179,15 +180,6 @@ function addBooksToLibrary() {
 
 addBooksToLibrary()
 printBooksToPage(library)
-
-// Add event listeners for delete book buttons
-const deleteButtons = document.querySelectorAll('.book-delete')
-deleteButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    button.parentNode.parentNode.classList.add("d-none")
-  })
-})
-
 
 const infoButtons = document.querySelectorAll('.book-info')
 const bookCards = document.querySelectorAll('.book')
