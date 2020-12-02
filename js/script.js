@@ -110,7 +110,6 @@ function printBooksToPage(libraryArray) {
       rotateCardBack(bookInfoWrapper)
       displayElementsOnCard(Array.from(bookInfoWrapper.children))
       hideElementsOnCard(bookBackSideWrapper)
-      console.log(book.haveRead)
     })
 
     // add event listener for back button on back-side
