@@ -24,8 +24,6 @@ function printBooksToPage(libraryArray) {
   // create variable for main book container
   let bookContainer = document.querySelector(".books")
   
-  // loop through books in supplied array and create markup for them
-  // as well as event listeners
   libraryArray.forEach((book, idx) => {
     // initialize book container to be added
     let bookInfoWrapper = document.createElement('div')
@@ -110,6 +108,7 @@ function printBooksToPage(libraryArray) {
       rotateCardBack(bookInfoWrapper)
       displayElementsOnCard(Array.from(bookInfoWrapper.children))
       hideElementsOnCard(bookBackSideWrapper)
+      console.log(book.haveRead)
     })
 
     // add event listener for back button on back-side
