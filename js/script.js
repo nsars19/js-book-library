@@ -141,7 +141,7 @@ addBookButton.addEventListener('click', () => {
 // Hide form after submitting book
 const submitBookButton = document.querySelector('.book-submit')
 submitBookButton.addEventListener('click', () => {
-  bookObj = pullBookInfoFromForm()
+  bookObj = pullBookInfoFromFormAsObject()
   addBookToLibrary(bookObj)
   showElement(addBookButton)
   hideElement(bookForm)
@@ -170,7 +170,7 @@ function removeMargin() {
 }
 
 // Pull info from form for new book creation
-function pullBookInfoFromForm() {
+function pullBookInfoFromFormAsObject() {
   const title = document.getElementById("title").value
   const author = document.getElementById("author").value
   const pages = document.getElementById("pages").value
