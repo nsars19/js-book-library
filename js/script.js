@@ -193,29 +193,6 @@ function clearForm() {
   const pages = document.getElementById("pages").value = ""
 }
 
-
-
-let theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295)
-let underpants = new Book("Captain Underpants", "Johnathan Underpants", 97, true)
-let divineComedy = new Book("The Divine Comedy", "Dante", 353,)
-let dune = new Book("Dune", "Frank Herbert", 501, true)
-let hyperion = new Book("Hyperion", "Dan Simmons", 462, true)
-let endymion = new Book("Endymion", "Dan Simmons", 516, true)
-let fahr = new Book("Fahrenheit 451", "Ray Bradbury", 451, true)
-let starship = new Book("Starship Troopers", "Robert Heinlein", 300, true)
-let ender = new Book("Ender's Game", "Orson Scott Card", 400)
-
-function addBooksToLibrary() {
-  let books = [theHobbit, underpants, divineComedy, dune, hyperion, endymion, fahr, starship, ender]
-  books.forEach(book => {
-    addBookToLibrary(book)
-  })
-}
-
-addBooksToLibrary()
-printBooksToPage(library)
-
-
 function rotateCard(card, back) {
   card.style.transition = "transform 0.2s"
   card.style.transform = "rotateY(180deg)"
@@ -251,4 +228,23 @@ function changeReadInfoText(book, element) {
   } else {
     element.innerText = "You have not read this book."
   }
+}
+
+
+let testBooks = {
+  theHobbit: new Book("The Hobbit", "J.R.R. Tolkien", 295),
+  underpants: new Book("Captain Underpants", "Johnathan Underpants", 97, true),
+  divineComedy: new Book("The Divine Comedy", "Dante", 353,),
+  dune: new Book("Dune", "Frank Herbert", 501, true),
+  hyperion: new Book("Hyperion", "Dan Simmons", 462, true),
+  endymion: new Book("Endymion", "Dan Simmons", 516, true),
+  fahr: new Book("Fahrenheit 451", "Ray Bradbury", 451, true),
+  starship: new Book("Starship Troopers", "Robert Heinlein", 300, true),
+  ender: new Book("Ender's Game", "Orson Scott Card", 400),
+}
+
+for (let book in testBooks) {
+  testBooks[book].addBookToLibrary(library)
+  let latest = [library[library.length - 1]]
+  printBooksToPage(latest)
 }
