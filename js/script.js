@@ -179,7 +179,7 @@ function pullBookInfoFromFormAsObject() {
   let book = {
     title: title,
     author: author,
-    pages: pages,
+    numPages: pages,
     haveRead: haveRead,
   }
 
