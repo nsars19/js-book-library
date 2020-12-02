@@ -11,16 +11,22 @@ Book.prototype.switchReadStatus = function() {
   return this.haveRead ? this.haveRead = false : this.haveRead = true
 }
 
+Book.prototype.addBookToLibrary = function(libraryArray) {
+  libraryArray.push(this)
+}
+
 function addBookToLibrary(obj) {
   let newBook = new Book(obj.title, obj.author, obj.numPages, obj.haveRead)
   library.push(newBook)
 }
 
-function printBooksToPage(library) {
+function printBooksToPage(libraryArray) {
   // create variable for main book container
   let bookContainer = document.querySelector(".books")
   
-  library.forEach((book, idx) => {
+  // loop through books in supplied array and create markup for them
+  // as well as event listeners
+  libraryArray.forEach((book, idx) => {
     // initialize book container to be added
     let bookInfoWrapper = document.createElement('div')
     bookInfoWrapper.className = "col-sm book"
@@ -67,15 +73,18 @@ function printBooksToPage(library) {
     bookInfo.forEach(section => {
       bookInfoWrapper.append(section);
     })
+
     // create & append button wrapper
     const buttonWrapper = document.createElement('div')
     buttonWrapper.className = "book-info-buttons"
     bookInfoWrapper.append(buttonWrapper)
+
     // create & append info button
     const viewButton = document.createElement('span')
     viewButton.className = "btn book-info"
     viewButton.innerText = 'info'
     buttonWrapper.append(viewButton);
+
     // create & append delete button
     const deleteButton = document.createElement('span')
     deleteButton.className = "btn book-delete"
@@ -84,6 +93,31 @@ function printBooksToPage(library) {
       deleteButton.parentNode.parentNode.classList.add("d-none")
     })
     buttonWrapper.append(deleteButton)
+
+    // add event listener for info button
+    // will flip card over & display back-side info
+    viewButton.addEventListener('click', () => {
+      rotateCard(bookInfoWrapper, bookBackSideWrapper)
+      hideElementsOnCard(Array.from(bookInfoWrapper.children))
+      changeReadInfoText(book, backsideText)
+      displayElementsOnCard(bookBackSideWrapper)
+    })
+
+    // add event listener for haveRead status changing button
+    // upon status change the card flips back to the front
+    backsideReadButton.addEventListener('click', () => {
+      book.switchReadStatus()
+      rotateCardBack(bookInfoWrapper)
+      displayElementsOnCard(Array.from(bookInfoWrapper.children))
+      hideElementsOnCard(bookBackSideWrapper)
+    })
+
+    // add event listener for back button on back-side
+    backFlipButton.addEventListener('click', () => {
+      rotateCardBack(bookInfoWrapper)
+      displayElementsOnCard(Array.from(bookInfoWrapper.children))
+      hideElementsOnCard(bookBackSideWrapper)
+    })
   })
 }
 
@@ -180,48 +214,6 @@ function addBooksToLibrary() {
 
 addBooksToLibrary()
 printBooksToPage(library)
-
-const infoButtons = document.querySelectorAll('.book-info')
-const bookCards = document.querySelectorAll('.book')
-const cardBackSides = document.querySelectorAll('.book-back')
-const flipCards = document.querySelectorAll('.flip-card')
-
-bookCards.forEach((card, idx) => {
-  let infoButton = infoButtons[idx]
-  let backInfo = cardBackSides[idx]
-  let backInfoChildren = Array.from(backInfo.children)
-  let childElements = Array.from(card.children)
-  let currentBook = library[idx]
-
-  infoButton.addEventListener('click', () => {
-    rotateCard(card, backInfo)
-    hideElementsOnCard(childElements)
-    changeReadInfoText(currentBook, backInfoChildren[0])
-    displayElementsOnCard(backInfo)
-  })
-})
-
-const readStatusButtons = document.querySelectorAll('.change-read-status')
-readStatusButtons.forEach((button, idx) => {
-  let frontElements = Array.from(bookCards[idx].children)
-  let backInfo = cardBackSides[idx]
-  let currentBook = library[idx]
-  let currentBookElement = document.getElementById(`book${idx}`)
-  let flipCard = flipCards[idx]
-
-  button.addEventListener('click', () => {
-    currentBook.switchReadStatus()
-    rotateCardBack(currentBookElement)
-    displayElementsOnCard(frontElements)
-    hideElementsOnCard(backInfo)
-  })
-
-  flipCard.addEventListener('click', () => {
-    rotateCardBack(currentBookElement)
-    displayElementsOnCard(frontElements)
-    hideElementsOnCard(backInfo)
-  })
-})
 
 
 function rotateCard(card, back) {
