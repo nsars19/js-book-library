@@ -26,12 +26,11 @@ function printBooksToPage(libraryArray) {
   
   // loop through books in supplied array and create markup for them
   // as well as event listeners
-  libraryArray.forEach((book, idx) => {
+  libraryArray.forEach(book => {
     // initialize book container to be added
     let bookInfoWrapper = document.createElement('div')
     bookInfoWrapper.className = "col-sm book"
-    bookInfoWrapper.setAttribute("id", `book${idx}`)
-
+    bookInfoWrapper.setAttribute("id", `${library.length}`)
     // initialize element for book title
     let bookTitle = document.createElement("h4")
     bookTitle.innerText = book.title
