@@ -79,8 +79,11 @@
     text-align: center;
     margin-top: 20px;
     margin-right: 8px;
-    padding: 8px 12px;
+    padding: 8px 0px;
     width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .books-wrapper {
